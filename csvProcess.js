@@ -25,7 +25,7 @@ function writeLinesCsv(mta_data) {
     var output = [["line_id","line_fullname","line_description","line_color"]];
     output = output.concat(linesData);
     var outputString = output.toCSV();
-    fs.writeFile("lines.csv", outputString, "utf8", function (err) {
+    fs.writeFile("lines.csv", outputString, {encoding:"ascii"}, function (err) {
         if (err) throw err;
         console.log("It's saved!");
     });
@@ -48,7 +48,7 @@ function prepCsvData(mta_data) {
                 var description = "";
                 cleaned.push(extraColumns[0],extraColumns[1]);
                 for(var j = 2; j <extraColumns.length-1; j++) {
-                    description += extraColumns[j];
+                    description += extraColumns[j].replace(/\"/g,"");
                     if(j !== extraColumns.length - 2) {
                         description += ",";
                     }
@@ -72,3 +72,6 @@ var mta_data = {
 mta_data = prepCsvData(mta_data);
 writeLinesCsv(mta_data);
 // debugger;
+
+
+//this will prep an object for us containing all our source data. We'll have to do some more cleanup 
