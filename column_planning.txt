@@ -11,7 +11,7 @@ stations_on.csv [x]
 station_id, sname, route_id
 
 trip_arrives.csv [x]
-trip_id, arrival_time, station_id, route_id
+trip_id, trip_time, station_id, route_id
 
 
 
