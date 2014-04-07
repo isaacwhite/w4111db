@@ -1,0 +1,17 @@
+lines.csv [x]
+line_id,line_description,line_color,line_fullname
+
+orders.csv [x]
+route_id,station_id,position
+
+routes_belongto.csv [x]
+route_id, direction, line_id
+
+stations_on.csv [x]
+station_id, sname, route_id
+
+trip_arrives.csv [x]
+trip_id, arrival_time, station_id, route_id
+
+
+
